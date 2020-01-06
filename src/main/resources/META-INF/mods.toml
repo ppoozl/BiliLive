@@ -1,0 +1,18 @@
+modLoader="javafml"
+loaderVersion="[30,)"
+
+[[mods]]
+    modId="bililive"
+    version="1.0.0"
+    displayName="BiliLive"
+	authors="ppoozl"
+    description='''
+    Bilibili 直播弹幕库
+    '''
+
+[[dependencies.BiliLive]]
+    modId="forge"
+    mandatory=true
+    versionRange="[30,)"
+    ordering="NONE"
+    side="BOTH"
