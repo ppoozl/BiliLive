@@ -39,11 +39,18 @@ public final class ModEventSubscriber {
         final String command = evt.getMessage();
         String arg;
         BiliLive.player = Minecraft.getInstance().player;
-        if(command.startsWith( "/bilidm" )){
+        if(command.equals("/bilidm")) {
+            BiliLiveCommand.bilidmAction("help", Minecraft.getInstance().player);
+            Minecraft.getInstance().ingameGUI.getChatGUI().addToSentMessages(command);
+            evt.setCanceled(true);
+        }
+        if(command.startsWith( "/bilidm " )){
             arg = command.substring(8);
             BiliLiveCommand.bilidmAction(arg , Minecraft.getInstance().player);
+            Minecraft.getInstance().ingameGUI.getChatGUI().addToSentMessages(command);
+            evt.setCanceled(true);
         }
-        evt.setCanceled(true);
+
     }
 
     @SubscribeEvent

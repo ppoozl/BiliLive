@@ -3,7 +3,7 @@ loaderVersion="[30,)"
 
 [[mods]]
     modId="bililive"
-    version="1.0.0"
+    version="1.0.1"
     displayName="BiliLive"
 	authors="ppoozl"
     description='''
