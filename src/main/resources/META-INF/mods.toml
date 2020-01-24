@@ -1,9 +1,9 @@
 modLoader="javafml"
-loaderVersion="[30,)"
+loaderVersion="[31,)"
 
 [[mods]]
     modId="bililive"
-    version="1.0.1"
+    version="1.0.2"
     displayName="BiliLive"
 	authors="ppoozl"
     description='''
@@ -13,6 +13,6 @@ loaderVersion="[30,)"
 [[dependencies.BiliLive]]
     modId="forge"
     mandatory=true
-    versionRange="[30,)"
+    versionRange="[31,)"
     ordering="NONE"
     side="BOTH"

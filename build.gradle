@@ -15,7 +15,7 @@ buildscript {
 apply plugin: "net.minecraftforge.gradle"
 apply plugin: 'idea'
 
-version = '1.0.1'
+version = '1.0.2'
 group = 'com.ppoozl.bililive'
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
@@ -87,7 +87,11 @@ jar {
         ])
     }
 }
-
+def reobfFile = file("$buildDir/reobfJar/output.jar")
+def reobfArtifact = artifacts.add('default', reobfFile) {
+    type 'jar'
+    builtBy 'reobfJar'
+}
 tasks.withType(JavaCompile) {
     options.encoding = "utf-8"
 }

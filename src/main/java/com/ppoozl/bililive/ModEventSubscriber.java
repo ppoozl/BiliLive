@@ -1,7 +1,6 @@
 package com.ppoozl.bililive;
 
 import com.ppoozl.bililive.api.event.*;
-import com.ppoozl.bililive.api.thread.BaseBiliLiveThread;
 import com.ppoozl.bililive.api.thread.BiliLiveThreadFactory;
 import com.ppoozl.bililive.command.BiliLiveCommand;
 import com.ppoozl.bililive.config.BiliLiveConfig;
@@ -14,9 +13,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
@@ -51,18 +48,6 @@ public final class ModEventSubscriber {
             evt.setCanceled(true);
         }
 
-    }
-
-    @SubscribeEvent
-    public static void onConfigChanged(OnConfigChangedEvent evt) {
-        if (evt.getModID().equals(BiliLive.MOD_ID) && BiliLive.player != null) {
-
-            // 提示信息
-            BaseBiliLiveThread.sendChatMessage("§8§l配置已经保存，正在重启中……");
-
-            // 重载房间信息
-            BiliLiveThreadFactory.restartThreads();
-        }
     }
 
     // 玩家进入服务器时，依据配置提供的平台，启动对于的弹幕线程
