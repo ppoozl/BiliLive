@@ -10,26 +10,19 @@ import net.minecraft.client.gui.IngameGui;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@EventBusSubscriber(modid = BiliLive.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public final class ModEventSubscriber {
 
     private static int tmpPopularityCount = 0;
-
-    @SubscribeEvent
-    public static void onServerStarting(FMLServerStartingEvent evt){
-        BiliLive.logger.info("Registering BiliLive commands...");
-        new BiliLiveCommand(evt.getCommandDispatcher());
-    }
 
     @SubscribeEvent
     public static void onClientChat(ClientChatEvent evt){

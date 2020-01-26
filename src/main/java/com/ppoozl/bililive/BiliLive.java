@@ -33,7 +33,7 @@ public class BiliLive {
             BiliLiveThreadFactory.RegisterBiliLiveThread("douyu", new DouyuThread());
             BiliLiveThreadFactory.RegisterBiliLiveThread("chushou", new ChushouThread());
 
-
+            MinecraftForge.EVENT_BUS.register(ModEventSubscriber.class);
             BiliLiveConfig.setup();
 
     }
